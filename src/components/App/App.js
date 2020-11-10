@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getUrls, postUrl } from '../../apiCalls';
+import { getUrls } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -12,9 +12,8 @@ export class App extends Component {
     }
   }
 
-  addUrl = (longUrl, title) => {
-    postUrl(longUrl, title)
-    .catch(error => this.setState({error: error.message}))
+  addUrl = (newUrl) => {
+  this.setState({ urls: [...this.state.urls, newUrl] });
   }
 
   fetchUrls = () => {

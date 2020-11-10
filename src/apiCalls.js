@@ -3,10 +3,11 @@ export const getUrls = () => {
       .then(response => response.json())
 }
 
-export const postUrl = (longUrl, title) => {
+export const postUrl = (postInfo) => {
   return fetch ('http://localhost:3001/api/v1/urls', {
     method: 'POST',
     headers: {"Content-Type": "application/json"},
-    body: {long_url: longUrl, title: title}
+    body: JSON.stringify(postInfo)
   })
+  .then(response => response.json())
 }
