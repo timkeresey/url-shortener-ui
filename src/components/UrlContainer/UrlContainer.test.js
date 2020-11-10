@@ -16,5 +16,7 @@ describe('UrlContainer', () => {
     render(<UrlContainer urls={dumUrls}/>);
 
     expect(screen.getByText('www.turing.com')).toBeInTheDocument();
+    expect(screen.getByText('http://localhost:3001/useshorturl/1')).toBeInTheDocument();
+    expect(screen.getByText('Awesome photo')).toBeInTheDocument();
   });
 })
