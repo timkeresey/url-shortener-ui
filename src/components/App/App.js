@@ -14,6 +14,7 @@ export class App extends Component {
 
   addUrl = (longUrl, title) => {
     postUrl(longUrl, title)
+    .catch(error => this.setState({error: error.message}))
   }
 
   fetchUrls = () => {
@@ -31,7 +32,7 @@ export class App extends Component {
       <main className="App">
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm />
+          <UrlForm addUrl={this.addUrl}/>
         </header>
 
         <UrlContainer urls={this.state.urls}/>
