@@ -23,7 +23,6 @@ class UrlForm extends Component {
     .then(data => this.setState({ newUrl: data }))
     .then(data => this.props.addUrl(this.state.newUrl))
     .catch(error => this.setState({error: error.message}))
-
     this.clearInputs();
   }
 

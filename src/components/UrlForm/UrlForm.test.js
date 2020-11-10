@@ -27,5 +27,14 @@ describe('UrlForm', () => {
     const url = screen.getByPlaceholderText('URL to Shorten...');
     userEvent.type(url, 'turing.io');
     expect(url).toHaveValue('turing.io');
-  })
+  });
+
+  it('should call addUrl when button is clicked', () => {
+    const dumAddUrl = jest.fn();
+
+    render(<UrlForm addUrl={dumAddUrl}/>);
+
+    userEvent.click(screen.getByText('Shorten Please!'));
+    expect(dumAddUrl).toHaveBeenCalledTimes(1);
+  });
 })
