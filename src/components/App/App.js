@@ -16,14 +16,11 @@ export class App extends Component {
   this.setState({ urls: [...this.state.urls, newUrl] });
   }
 
-  fetchUrls = () => {
+
+  componentDidMount() {
     getUrls()
     .then(data => this.setState({ urls: data.urls }))
     .catch(error => this.setState({error: error.message}))
-  }
-
-  componentDidMount() {
-    this.fetchUrls();
   }
 
   render() {
